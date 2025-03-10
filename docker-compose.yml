@@ -11,8 +11,8 @@ services:
       - NODE_ENV=${NODE_ENV:-production}
       - APP_KEY=${APP_KEY}
       - TZ=${TZ:-UTC}
-      - HOST=${HOST:-0.0.0.0}
-      - PORT=${PORT:-3333}
+      - HOST=0.0.0.0
+      - PORT=3333
       - DRIVE_DISK=${DRIVE_DISK:-spaces}
       - SPACES_KEY=${SPACES_KEY}
       - SPACES_SECRET=${SPACES_SECRET}
@@ -20,6 +20,14 @@ services:
       - SPACES_BUCKET=${SPACES_BUCKET}
       - SPACES_ENDPOINT=${SPACES_ENDPOINT}
       - APP_PASSWORD=${APP_PASSWORD}
+    labels:
+      - coolify.port=3333
+      - coolify.healthcheck.path=/health
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3333/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
     restart: unless-stopped
     volumes:
       - ./logs:/app/logs
