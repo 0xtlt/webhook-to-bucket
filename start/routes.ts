@@ -21,4 +21,5 @@ router.get('/health', async () => {
 
 // Webhook endpoint to store data to S3 bucket with password protection
 router
-  .post('/set', [middleware.auth(), WebhookController, 'set'])
+  .post('/set', [WebhookController, 'set'])
+  .use(middleware.auth())
