@@ -13,16 +13,16 @@ RUN npm ci
 COPY . .
 
 # Build the app
-RUN node ace build --production
+RUN node ace build
 
 # Copy built app to production directory
 WORKDIR /app/build
 
 # Install production dependencies
-RUN npm ci --production
+RUN npm ci --omit=dev
 
 # Expose port
 EXPOSE 3333
 
 # Start the app
-CMD ["node", "server.js"]
+CMD ["node", "bin/server.js"]
