@@ -24,5 +24,5 @@ RUN npm ci --omit=dev
 # Expose port
 EXPOSE 3333
 
-# Start the app
-CMD ["node", "bin/server.js"]
+# Start the app with explicit host binding to 0.0.0.0
+CMD ["node", "bin/server.js", "--host=0.0.0.0", "--port=3333"]
