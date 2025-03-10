@@ -17,4 +17,16 @@ export default await Env.create(new URL('../', import.meta.url), {
   APP_KEY: Env.schema.string(),
   HOST: Env.schema.string({ format: 'host' }),
   LOG_LEVEL: Env.schema.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the drive package
+  |----------------------------------------------------------
+  */
+  DRIVE_DISK: Env.schema.enum(['spaces'] as const),
+  SPACES_KEY: Env.schema.string(),
+  SPACES_SECRET: Env.schema.string(),
+  SPACES_REGION: Env.schema.string(),
+  SPACES_BUCKET: Env.schema.string(),
+  SPACES_ENDPOINT: Env.schema.string()
 })
