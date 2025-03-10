@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - '3000'
     environment:
       - NODE_ENV=production
       - APP_KEY=${APP_KEY}
@@ -28,7 +28,8 @@ services:
       - traefik.enable=true
       - traefik.http.services.${COOLIFY_SERVICE_NAME:-webhook}.loadbalancer.server.port=3000
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1"]
+      test:
+        ['CMD-SHELL', 'wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1']
       interval: 10s
       timeout: 5s
       retries: 3
