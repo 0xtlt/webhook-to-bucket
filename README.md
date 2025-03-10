@@ -45,7 +45,7 @@ A lightweight AdonisJS application that provides a webhook endpoint to store dat
    SPACES_REGION=your_region
    SPACES_BUCKET=your_bucket_name
    SPACES_ENDPOINT=https://your_region.digitaloceanspaces.com
-   PASSWORD=your_secure_webhook_password
+   APP_PASSWORD=your_secure_webhook_password
    ```
 
 5. Start the development server:
@@ -180,11 +180,11 @@ Error responses (401 for authentication failure, 422 for validation errors):
 | `SPACES_REGION` | S3 region | - |
 | `SPACES_BUCKET` | S3 bucket name | - |
 | `SPACES_ENDPOINT` | S3 endpoint URL | - |
-| `PASSWORD` | Password for webhook authentication | - |
+| `APP_PASSWORD` | Password for webhook authentication | - |
 
 ## Security Considerations
 
-- Always use a strong, unique password for the `PASSWORD` environment variable
+- Always use a strong, unique password for the `APP_PASSWORD` environment variable
 - Consider using HTTPS in production to encrypt the password sent in headers
 - If deploying publicly, consider implementing rate limiting to prevent brute force attacks
 

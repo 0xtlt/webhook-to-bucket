@@ -19,7 +19,7 @@ services:
       - SPACES_REGION=${SPACES_REGION}
       - SPACES_BUCKET=${SPACES_BUCKET}
       - SPACES_ENDPOINT=${SPACES_ENDPOINT}
-      - PASSWORD=${PASSWORD}
+      - APP_PASSWORD=${APP_PASSWORD}
     restart: unless-stopped
     volumes:
       - ./logs:/app/logs
