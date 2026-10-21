@@ -29,11 +29,11 @@ export default await Env.create(new URL('../', import.meta.url), {
   SPACES_REGION: Env.schema.string(),
   SPACES_BUCKET: Env.schema.string(),
   SPACES_ENDPOINT: Env.schema.string(),
-  
+
   /*
   |----------------------------------------------------------
   | Variables for webhook authentication
   |----------------------------------------------------------
   */
-  APP_PASSWORD: Env.schema.string.optional()
+  APP_PASSWORD: Env.schema.string.optional(),
 })
